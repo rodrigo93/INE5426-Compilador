@@ -1,10 +1,10 @@
 /**
- * Define a grammar called Hello
+ * Define a grammar called NossaLinguagem
  */
-grammar OurLanguage;
+grammar NossaLinguagem;
 
 @header {
-    package ourlanguage.antlr;
+    package nossalinguagem.antlr;
 }
 
 goal
