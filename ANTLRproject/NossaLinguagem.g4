@@ -10,7 +10,6 @@ grammar NossaLinguagem;
 goal
     :   mainClassDeclaration
         classDeclaration*
-        EOF
     ;
 
 mainClassDeclaration
@@ -85,7 +84,9 @@ formalParameter
 type
     :   intArrayType
     |   booleanType
+    |   quantumType
     |   intType
+    |	charType
     |   ID
     ;
 
@@ -139,6 +140,10 @@ expression
     # andExpression
     |   INT
     # intLitExpression
+    |	QUANTUM
+    # quantumExpression
+    |	CHAR
+    # charExpression
     |   BOOL
     # booleanLitExpression
     |   ID
@@ -157,6 +162,10 @@ intArrayType
     :   'int' '[' ']'
     ;
 
+charType
+	:	'char'
+	;
+
 booleanType
     :   'boolean'
     ;
@@ -165,9 +174,23 @@ intType
     :   'int'
     ;
 
+quantumType
+	:	'quantum'
+	;
+
+CHAR
+	:	[a-zA-Z_][0-9a-zA-Z_]
+	;
+
 INT
     :   ('0' | [1-9][0-9]*)
     ;
+
+QUANTUM
+	:	'true'
+	|	'false'
+	|	'maybe'
+	;
 
 BOOL
     :   'true'
