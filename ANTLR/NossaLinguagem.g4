@@ -37,10 +37,20 @@ classBody
 
 fieldDeclaration
     :   type ID ';'
+	|   type ID '=' ID ';'
+    |   type ID '=' INT ';'
+    |   type ID '=' CHAR ';'
+    |   type ID '=' QUANTUM ';'
+    |   type ID '=' BOOL ';' 
     ;
 
 varDeclaration
     :   type ID ';'
+    |   type ID '=' ID ';'
+    |   type ID '=' INT ';'
+    |   type ID '=' CHAR ';'
+    |   type ID '=' QUANTUM ';'
+    |   type ID '=' BOOL ';' 
     ;
 
 methodDeclaration
@@ -89,23 +99,29 @@ type
 statement
     :   '{' statement* '}'
     # nestedStatement
-    |   'if' '(' expression ')'
+    |   'if' '(' booleanExpression ')'
             statement
         'else'
             statement
     # ifElseStatement
-    |   'while' '(' expression ')'
+    |   'while' '(' booleanExpression ')'
             statement
     # whileStatement
     |   'System.out.println' '(' expression ')' ';'
     # printStatement
     |   ID '=' expression ';'
     # assignStatement
+	|   ID '=' booleanExpression ';'
+    # assignStatement2
+	|   ID '=' mathExpression ';'
+    # assignStatement3
     |   ID '[' expression ']' '=' expression ';'
     # arrayAssignStatement
     |   'return' expression ';'
     # returnStatement
-    |   'recur' expression '?' methodArgumentList ':' expression ';'
+	|   'return' functionCall ';'
+    # returnStatement2
+    |   'recur' booleanExpression '?' methodArgumentList ':' expression ';'
     # recurStatement
     ;
 
@@ -118,22 +134,12 @@ expression
     # methodCallExpression
     |   '-' expression
     # negExpression
-    |   '!' expression
-    # notExpression
     |   'new' 'int' '[' expression ']'
     # arrayInstantiationExpression
     |   'new' ID '(' ')'
     # objectInstantiationExpression
-    |   expression '+'  expression
-    # addExpression
-    |   expression '-'  expression
-    # subExpression
-    |   expression '*'  expression
-    # mulExpression
-    |   expression '<'  expression
-    # ltExpression
-    |   expression '&&' expression
-    # andExpression
+    |   expression '=' expression
+    # atrExpression
     |   INT
     # intLitExpression
     |	QUANTUM
@@ -147,8 +153,52 @@ expression
     |   'this'
     # thisExpression
     |   '(' expression ')'
-    # parenExpression
+    # parenExpression2
     ;
+
+booleanExpression
+	:   '!' expression
+    # notExpression
+    |   expression '<'  expression
+    # ltExpression
+	|   expression '==' expression
+	# eqExpression
+    |   expression '&&' expression
+    # andExpression
+    |	expression '||' expression
+    # andExpression
+	|   expression '<'  booleanExpression
+    # ltExpression2
+	|   expression '==' booleanExpression
+	# eqExpression2
+    |   expression '&&' booleanExpression
+    # andExpression2
+    |	expression '||' booleanExpression
+    # andExpression2
+	|   '(' booleanExpression ')'
+    # parenExpression
+	|   ID
+    # IDExpression
+	;
+
+mathExpression
+	:   expression '+'  expression
+    # addExpression
+    |   expression '-'  expression
+    # subExpression
+    |   expression '*'  expression
+    # mulExpression
+	|   expression '+'  mathExpression
+    # addExpression2
+    |   expression '-'  mathExpression
+    # subExpression2
+    |   expression '*'  mathExpression
+    # mulExpression2
+	;
+
+functionCall
+	: ID methodArgumentList
+	;
 
 methodArgumentList
     :   '(' (expression (',' expression)*)? ')'
@@ -175,7 +225,7 @@ quantumType
 	;
 
 CHAR
-	:	[a-zA-Z_][0-9a-zA-Z_]
+	:	'\''[a-zA-Z_]'\''
 	;
 
 INT
