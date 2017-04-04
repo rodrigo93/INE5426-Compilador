@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>NossaLinguagem.g4</title>
+<style type="text/css">
+body { 
+  color: #000;
+  font-family: sans-serif;
+  font-size: 12px;
+  margin: 20px 5px 10px 20px;
+}
+/* resets */
+ul {
+  list-style: none;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+img {
+  border: 0;
+}
+.clear {
+  clear: both;
+}
+.container {
+  position: relative;
+}
+/* Grammar name */
+h1 {
+  font-size: 20px;
+}
+/*Grammar documentation*/
+.gdoc {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+#index {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  overflow: auto;
+}
+#index h2 {
+  margin: 0;
+}
+#index ol {
+  padding-left: 30px;
+  list-style-type: square;
+  color: #364559;
+}
+#index ol li {
+  margin: 2px 0;
+}
+#index ol li a {
+  color: #366199;
+  font-family: monospace;
+}
+#rules {
+  margin-left: 210px;
+  padding-left: 20px;
+  border-left: 1px solid #AAA;
+}
+.rule {
+  margin-bottom: 30px;
+}
+/* Rule name*/
+.rule h3 {
+  color: #364559;
+  background-color: #DADFE6;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 4px 5px;
+  border-bottom: 1px solid #828B99;
+}
+.rule h3 a.topLink {
+  font-family: sans-serif;
+  font-size: 10px;
+  color: #000;
+  margin-left: 20px;
+}
+.rule h3, .rule .ebnf div {
+  font-family: monospace;
+}
+/* Sections: ebnf, railroad*/
+.doc, .ebnf, .railroad {
+  padding-left: 20px;
+}
+.doc h4, .ebnf h4, .railroad h4 {
+  font-size: 12px;
+  margin: 15px 0 10px -20px;
+}
+.ebnf div {
+  background-color: #F7F7F7;
+  border-top: 1px solid #E8E8E8;
+  border-bottom: 1px solid #E8E8E8;
+  padding: 10px 5px;
+}
+.ebnf div .literal {
+  color: #0000FF;
+}
+.ebnf div .keyword {
+  color: #7F0055;
+  font-weight: bold;
+}
+.ebnf div .rule {
+  color: #004084;
+  font-weight: bold;
+}
+.ebnf div .token {
+  font-style:italic;
+}
+.railroad img {
+  display: block;
+}
+footer {
+  float: right;
+}
+</style>
+</head>
+<body>
+<h1><a href="NossaLinguagem.g4.html" name="top">NossaLinguagem</a></h1>
+<p class="gdoc">Define a grammar called NossaLinguagem</p>
+<div class="container">
+<div id="index">
+<h2>Rules</h2>
+<ol>
+  <li><a href="#goal">goal</a></li>
+  <li><a href="#mainClassDeclaration">mainClassDeclaration</a></li>
+  <li><a href="#classDeclaration">classDeclaration</a></li>
+  <li><a href="#mainClassBody">mainClassBody</a></li>
+  <li><a href="#mainMethod">mainMethod</a></li>
+  <li><a href="#mainMethodDeclaration">mainMethodDeclaration</a></li>
+  <li><a href="#classBody">classBody</a></li>
+  <li><a href="#fieldDeclaration">fieldDeclaration</a></li>
+  <li><a href="#varDeclaration">varDeclaration</a></li>
+  <li><a href="#methodDeclaration">methodDeclaration</a></li>
+  <li><a href="#methodBody">methodBody</a></li>
+  <li><a href="#formalParameters">formalParameters</a></li>
+  <li><a href="#formalParameterList">formalParameterList</a></li>
+  <li><a href="#formalParameter">formalParameter</a></li>
+  <li><a href="#type">type</a></li>
+  <li><a href="#statement">statement</a></li>
+  <li><a href="#expression">expression</a></li>
+  <li><a href="#booleanExpression">booleanExpression</a></li>
+  <li><a href="#mathExpression">mathExpression</a></li>
+  <li><a href="#functionCall">functionCall</a></li>
+  <li><a href="#methodArgumentList">methodArgumentList</a></li>
+  <li><a href="#intArrayType">intArrayType</a></li>
+  <li><a href="#charType">charType</a></li>
+  <li><a href="#booleanType">booleanType</a></li>
+  <li><a href="#intType">intType</a></li>
+  <li><a href="#quantumType">quantumType</a></li>
+  <li><a href="#CHAR">CHAR</a></li>
+  <li><a href="#INT">INT</a></li>
+  <li><a href="#QUANTUM">QUANTUM</a></li>
+  <li><a href="#BOOL">BOOL</a></li>
+  <li><a href="#ID">ID</a></li>
+  <li><a href="#WS">WS</a></li>
+  <li><a href="#COMMENT">COMMENT</a></li>
+  <li><a href="#LINE_COMMENT">LINE_COMMENT</a></li>
+</ol>
+</div>
+
+<div id="rules">
+<ul>
+  <li class="rule" id="goal">
+  <h3>goal <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">goal</span> :  <a href="#mainClassDeclaration" class="rule">mainClassDeclaration</a> <a href="#classDeclaration" class="rule">classDeclaration</a><span class="operator">*</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/goal.png" />
+  </div>
+  </li>
+  <li class="rule" id="mainClassDeclaration">
+  <h3>mainClassDeclaration <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">mainClassDeclaration</span> :  <span class="literal">'class'</span> <a href="#ID" class="token">ID</a> <a href="#mainClassBody" class="rule">mainClassBody</a> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/mainClassDeclaration.png" />
+  </div>
+  </li>
+  <li class="rule" id="classDeclaration">
+  <h3>classDeclaration <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">classDeclaration</span> :  <span class="literal">'class'</span> <a href="#ID" class="token">ID</a> <span class="operator">(</span><span class="literal">'extends'</span> <a href="#type" class="rule">type</a><span class="operator">)</span><span class="operator">?</span> <a href="#classBody" class="rule">classBody</a> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/classDeclaration.png" />
+  </div>
+  </li>
+  <li class="rule" id="mainClassBody">
+  <h3>mainClassBody <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">mainClassBody</span> :  <span class="literal">'{'</span> <a href="#mainMethod" class="rule">mainMethod</a> <span class="literal">'}'</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/mainClassBody.png" />
+  </div>
+  </li>
+  <li class="rule" id="mainMethod">
+  <h3>mainMethod <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">mainMethod</span> :  <a href="#mainMethodDeclaration" class="rule">mainMethodDeclaration</a> <span class="literal">'{'</span> <a href="#statement" class="rule">statement</a> <span class="literal">'}'</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/mainMethod.png" />
+  </div>
+  </li>
+  <li class="rule" id="mainMethodDeclaration">
+  <h3>mainMethodDeclaration <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">mainMethodDeclaration</span> :  <span class="literal">'public'</span> <span class="literal">'static'</span> <span class="literal">'void'</span> <span class="literal">'main'</span> <span class="literal">'('</span> <span class="literal">'String'</span> <span class="literal">'['</span> <span class="literal">']'</span> <a href="#ID" class="token">ID</a> <span class="literal">')'</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/mainMethodDeclaration.png" />
+  </div>
+  </li>
+  <li class="rule" id="classBody">
+  <h3>classBody <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">classBody</span> :  <span class="literal">'{'</span> <a href="#fieldDeclaration" class="rule">fieldDeclaration</a><span class="operator">*</span> <a href="#methodDeclaration" class="rule">methodDeclaration</a><span class="operator">*</span> <span class="literal">'}'</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/classBody.png" />
+  </div>
+  </li>
+  <li class="rule" id="fieldDeclaration">
+  <h3>fieldDeclaration <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">fieldDeclaration</span> :  <a href="#type" class="rule">type</a> <a href="#ID" class="token">ID</a> <span class="literal">';'</span> <span class="operator">|</span> <a href="#type" class="rule">type</a> <a href="#ID" class="token">ID</a> <span class="literal">'='</span> <a href="#ID" class="token">ID</a> <span class="literal">';'</span> <span class="operator">|</span> <a href="#type" class="rule">type</a> <a href="#ID" class="token">ID</a> <span class="literal">'='</span> <a href="#INT" class="token">INT</a> <span class="literal">';'</span> <span class="operator">|</span> <a href="#type" class="rule">type</a> <a href="#ID" class="token">ID</a> <span class="literal">'='</span> <a href="#CHAR" class="token">CHAR</a> <span class="literal">';'</span> <span class="operator">|</span> <a href="#type" class="rule">type</a> <a href="#ID" class="token">ID</a> <span class="literal">'='</span> <a href="#QUANTUM" class="token">QUANTUM</a> <span class="literal">';'</span> <span class="operator">|</span> <a href="#type" class="rule">type</a> <a href="#ID" class="token">ID</a> <span class="literal">'='</span> <a href="#BOOL" class="token">BOOL</a> <span class="literal">';'</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/fieldDeclaration.png" />
+  </div>
+  </li>
+  <li class="rule" id="varDeclaration">
+  <h3>varDeclaration <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">varDeclaration</span> :  <a href="#type" class="rule">type</a> <a href="#ID" class="token">ID</a> <span class="literal">';'</span> <span class="operator">|</span> <a href="#type" class="rule">type</a> <a href="#ID" class="token">ID</a> <span class="literal">'='</span> <a href="#ID" class="token">ID</a> <span class="literal">';'</span> <span class="operator">|</span> <a href="#type" class="rule">type</a> <a href="#ID" class="token">ID</a> <span class="literal">'='</span> <a href="#INT" class="token">INT</a> <span class="literal">';'</span> <span class="operator">|</span> <a href="#type" class="rule">type</a> <a href="#ID" class="token">ID</a> <span class="literal">'='</span> <a href="#CHAR" class="token">CHAR</a> <span class="literal">';'</span> <span class="operator">|</span> <a href="#type" class="rule">type</a> <a href="#ID" class="token">ID</a> <span class="literal">'='</span> <a href="#QUANTUM" class="token">QUANTUM</a> <span class="literal">';'</span> <span class="operator">|</span> <a href="#type" class="rule">type</a> <a href="#ID" class="token">ID</a> <span class="literal">'='</span> <a href="#BOOL" class="token">BOOL</a> <span class="literal">';'</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/varDeclaration.png" />
+  </div>
+  </li>
+  <li class="rule" id="methodDeclaration">
+  <h3>methodDeclaration <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">methodDeclaration</span> :  <span class="operator">(</span> <span class="literal">'public'</span> <a href="#type" class="rule">type</a> <a href="#ID" class="token">ID</a> <a href="#formalParameters" class="rule">formalParameters</a>   <span class="operator">|</span> <a href="#type" class="rule">type</a> <a href="#ID" class="token">ID</a> <a href="#formalParameters" class="rule">formalParameters</a> <span class="operator">{notifyErrorListeners("method declaration without public");}</span> <span class="operator">|</span> <span class="literal">'public'</span> <a href="#ID" class="token">ID</a> <a href="#formalParameters" class="rule">formalParameters</a> <span class="operator">{notifyErrorListeners("method declaration without return type");}</span> <span class="operator">|</span> <span class="literal">'public'</span> <a href="#type" class="rule">type</a> <a href="#formalParameters" class="rule">formalParameters</a> <span class="operator">{notifyErrorListeners("method declaration without method name");}</span> <span class="operator">|</span> <span class="literal">'public'</span> <a href="#type" class="rule">type</a> <a href="#ID" class="token">ID</a> <span class="operator">{notifyErrorListeners("method declaration without argument list");}</span> <span class="operator">)</span> <a href="#methodBody" class="rule">methodBody</a> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/methodDeclaration.png" />
+  </div>
+  </li>
+  <li class="rule" id="methodBody">
+  <h3>methodBody <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">methodBody</span> :  <span class="literal">'{'</span> <a href="#varDeclaration" class="rule">varDeclaration</a><span class="operator">*</span> <a href="#statement" class="rule">statement</a><span class="operator">+</span> <span class="literal">'}'</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/methodBody.png" />
+  </div>
+  </li>
+  <li class="rule" id="formalParameters">
+  <h3>formalParameters <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">formalParameters</span> :  <span class="literal">'('</span> <a href="#formalParameterList" class="rule">formalParameterList</a><span class="operator">?</span> <span class="literal">')'</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/formalParameters.png" />
+  </div>
+  </li>
+  <li class="rule" id="formalParameterList">
+  <h3>formalParameterList <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">formalParameterList</span> :  <a href="#formalParameter" class="rule">formalParameter</a> <span class="operator">(</span><span class="literal">','</span> <a href="#formalParameter" class="rule">formalParameter</a><span class="operator">)</span><span class="operator">*</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/formalParameterList.png" />
+  </div>
+  </li>
+  <li class="rule" id="formalParameter">
+  <h3>formalParameter <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">formalParameter</span> :  <a href="#type" class="rule">type</a> <a href="#ID" class="token">ID</a> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/formalParameter.png" />
+  </div>
+  </li>
+  <li class="rule" id="type">
+  <h3>type <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">type</span> :  <a href="#intArrayType" class="rule">intArrayType</a> <span class="operator">|</span> <a href="#booleanType" class="rule">booleanType</a> <span class="operator">|</span> <a href="#quantumType" class="rule">quantumType</a> <span class="operator">|</span> <a href="#intType" class="rule">intType</a> <span class="operator">|</span> <a href="#charType" class="rule">charType</a> <span class="operator">|</span> <a href="#ID" class="token">ID</a> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/type.png" />
+  </div>
+  </li>
+  <li class="rule" id="statement">
+  <h3>statement <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">statement</span> :  <span class="literal">'{'</span> <a href="#statement" class="rule">statement</a><span class="operator">*</span> <span class="literal">'}'</span> <span class="operator">#</span> <a href="#nestedStatement" class="rule">nestedStatement</a> <span class="operator">|</span> <span class="literal">'if'</span> <span class="literal">'('</span> <a href="#booleanExpression" class="rule">booleanExpression</a> <span class="literal">')'</span> <a href="#statement" class="rule">statement</a> <span class="literal">'else'</span> <a href="#statement" class="rule">statement</a> <span class="operator">#</span> <a href="#ifElseStatement" class="rule">ifElseStatement</a> <span class="operator">|</span> <span class="literal">'if'</span> <span class="literal">'('</span> <a href="#booleanExpression" class="rule">booleanExpression</a> <span class="literal">')'</span> <a href="#statement" class="rule">statement</a> <span class="operator">#</span> <a href="#ifStatement" class="rule">ifStatement</a> <span class="operator">|</span> <span class="literal">'while'</span> <span class="literal">'('</span> <a href="#booleanExpression" class="rule">booleanExpression</a> <span class="literal">')'</span> <a href="#statement" class="rule">statement</a> <span class="operator">#</span> <a href="#whileStatement" class="rule">whileStatement</a> <span class="operator">|</span> <span class="literal">'System.out.println'</span> <span class="literal">'('</span> <a href="#expression" class="rule">expression</a> <span class="literal">')'</span> <span class="literal">';'</span> <span class="operator">#</span> <a href="#printStatement" class="rule">printStatement</a> <span class="operator">|</span> <a href="#ID" class="token">ID</a> <span class="literal">'='</span> <a href="#expression" class="rule">expression</a> <span class="literal">';'</span> <span class="operator">#</span> <a href="#assignStatement" class="rule">assignStatement</a> <span class="operator">|</span> <a href="#ID" class="token">ID</a> <span class="literal">'='</span> <a href="#booleanExpression" class="rule">booleanExpression</a> <span class="literal">';'</span> <span class="operator">#</span> <a href="#assignStatement2" class="rule">assignStatement2</a> <span class="operator">|</span> <a href="#ID" class="token">ID</a> <span class="literal">'='</span> <a href="#mathExpression" class="rule">mathExpression</a> <span class="literal">';'</span> <span class="operator">#</span> <a href="#assignStatement3" class="rule">assignStatement3</a> <span class="operator">|</span> <a href="#ID" class="token">ID</a> <span class="literal">'['</span> <a href="#expression" class="rule">expression</a> <span class="literal">']'</span> <span class="literal">'='</span> <a href="#expression" class="rule">expression</a> <span class="literal">';'</span> <span class="operator">#</span> <a href="#arrayAssignStatement" class="rule">arrayAssignStatement</a> <span class="operator">|</span> <span class="literal">'return'</span> <a href="#expression" class="rule">expression</a> <span class="literal">';'</span> <span class="operator">#</span> <a href="#returnStatement" class="rule">returnStatement</a> <span class="operator">|</span> <span class="literal">'return'</span> <a href="#functionCall" class="rule">functionCall</a> <span class="literal">';'</span> <span class="operator">#</span> <a href="#returnStatement2" class="rule">returnStatement2</a> <span class="operator">|</span> <span class="literal">'recur'</span> <a href="#booleanExpression" class="rule">booleanExpression</a> <span class="literal">'?'</span> <a href="#methodArgumentList" class="rule">methodArgumentList</a> <span class="literal">':'</span> <a href="#expression" class="rule">expression</a> <span class="literal">';'</span> <span class="operator">#</span> <a href="#recurStatement" class="rule">recurStatement</a> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/statement.png" />
+  </div>
+  </li>
+  <li class="rule" id="expression">
+  <h3>expression <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">expression</span> :  <a href="#expression" class="rule">expression</a> <span class="literal">'['</span> <a href="#expression" class="rule">expression</a> <span class="literal">']'</span> <span class="operator">#</span> <a href="#arrayAccessExpression" class="rule">arrayAccessExpression</a> <span class="operator">|</span> <a href="#expression" class="rule">expression</a> <span class="literal">'.'</span> <span class="literal">'length'</span> <span class="operator">#</span> <a href="#arrayLengthExpression" class="rule">arrayLengthExpression</a> <span class="operator">|</span> <a href="#expression" class="rule">expression</a> <span class="literal">'.'</span> <a href="#ID" class="token">ID</a> <a href="#methodArgumentList" class="rule">methodArgumentList</a> <span class="operator">#</span> <a href="#methodCallExpression" class="rule">methodCallExpression</a> <span class="operator">|</span> <span class="literal">'-'</span> <a href="#expression" class="rule">expression</a> <span class="operator">#</span> <a href="#negExpression" class="rule">negExpression</a> <span class="operator">|</span> <span class="literal">'new'</span> <span class="literal">'int'</span> <span class="literal">'['</span> <a href="#expression" class="rule">expression</a> <span class="literal">']'</span> <span class="operator">#</span> <a href="#arrayInstantiationExpression" class="rule">arrayInstantiationExpression</a> <span class="operator">|</span> <span class="literal">'new'</span> <a href="#ID" class="token">ID</a> <span class="literal">'('</span> <span class="literal">')'</span> <span class="operator">#</span> <a href="#objectInstantiationExpression" class="rule">objectInstantiationExpression</a> <span class="operator">|</span> <a href="#expression" class="rule">expression</a> <span class="literal">'='</span> <a href="#expression" class="rule">expression</a> <span class="operator">#</span> <a href="#atrExpression" class="rule">atrExpression</a> <span class="operator">|</span> <a href="#INT" class="token">INT</a> <span class="operator">#</span> <a href="#intLitExpression" class="rule">intLitExpression</a> <span class="operator">|</span> <a href="#QUANTUM" class="token">QUANTUM</a> <span class="operator">#</span> <a href="#quantumExpression" class="rule">quantumExpression</a> <span class="operator">|</span> <a href="#CHAR" class="token">CHAR</a> <span class="operator">#</span> <a href="#charExpression" class="rule">charExpression</a> <span class="operator">|</span> <a href="#BOOL" class="token">BOOL</a> <span class="operator">#</span> <a href="#booleanLitExpression" class="rule">booleanLitExpression</a> <span class="operator">|</span> <a href="#ID" class="token">ID</a> <span class="operator">#</span> <a href="#identifierExpression" class="rule">identifierExpression</a> <span class="operator">|</span> <span class="literal">'this'</span> <span class="operator">#</span> <a href="#thisExpression" class="rule">thisExpression</a> <span class="operator">|</span> <span class="literal">'('</span> <a href="#expression" class="rule">expression</a> <span class="literal">')'</span> <span class="operator">#</span> <a href="#parenExpression2" class="rule">parenExpression2</a> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/expression.png" />
+  </div>
+  </li>
+  <li class="rule" id="booleanExpression">
+  <h3>booleanExpression <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">booleanExpression</span> :  <span class="literal">'!'</span> <a href="#expression" class="rule">expression</a> <span class="operator">#</span> <a href="#notExpression" class="rule">notExpression</a> <span class="operator">|</span> <a href="#expression" class="rule">expression</a> <span class="literal">'<'</span> <a href="#expression" class="rule">expression</a> <span class="operator">#</span> <a href="#ltExpression" class="rule">ltExpression</a> <span class="operator">|</span> <a href="#expression" class="rule">expression</a> <span class="literal">'=='</span> <a href="#expression" class="rule">expression</a> <span class="operator">#</span> <a href="#eqExpression" class="rule">eqExpression</a> <span class="operator">|</span> <a href="#expression" class="rule">expression</a> <span class="literal">'&&'</span> <a href="#expression" class="rule">expression</a> <span class="operator">#</span> <a href="#andExpression" class="rule">andExpression</a> <span class="operator">|</span> <a href="#expression" class="rule">expression</a> <span class="literal">'||'</span> <a href="#expression" class="rule">expression</a> <span class="operator">#</span> <a href="#andExpression" class="rule">andExpression</a> <span class="operator">|</span> <a href="#expression" class="rule">expression</a> <span class="literal">'<'</span> <a href="#booleanExpression" class="rule">booleanExpression</a> <span class="operator">#</span> <a href="#ltExpression2" class="rule">ltExpression2</a> <span class="operator">|</span> <a href="#expression" class="rule">expression</a> <span class="literal">'=='</span> <a href="#booleanExpression" class="rule">booleanExpression</a> <span class="operator">#</span> <a href="#eqExpression2" class="rule">eqExpression2</a> <span class="operator">|</span> <a href="#expression" class="rule">expression</a> <span class="literal">'&&'</span> <a href="#booleanExpression" class="rule">booleanExpression</a> <span class="operator">#</span> <a href="#andExpression2" class="rule">andExpression2</a> <span class="operator">|</span> <a href="#expression" class="rule">expression</a> <span class="literal">'||'</span> <a href="#booleanExpression" class="rule">booleanExpression</a> <span class="operator">#</span> <a href="#andExpression2" class="rule">andExpression2</a> <span class="operator">|</span> <span class="literal">'('</span> <a href="#booleanExpression" class="rule">booleanExpression</a> <span class="literal">')'</span> <span class="operator">#</span> <a href="#parenExpression" class="rule">parenExpression</a> <span class="operator">|</span> <a href="#ID" class="token">ID</a> <span class="operator">#</span> <a href="#IDExpression" class="token">IDExpression</a> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/booleanExpression.png" />
+  </div>
+  </li>
+  <li class="rule" id="mathExpression">
+  <h3>mathExpression <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">mathExpression</span> :  <a href="#expression" class="rule">expression</a> <span class="literal">'+'</span> <a href="#expression" class="rule">expression</a> <span class="operator">#</span> <a href="#addExpression" class="rule">addExpression</a> <span class="operator">|</span> <a href="#expression" class="rule">expression</a> <span class="literal">'-'</span> <a href="#expression" class="rule">expression</a> <span class="operator">#</span> <a href="#subExpression" class="rule">subExpression</a> <span class="operator">|</span> <a href="#expression" class="rule">expression</a> <span class="literal">'*'</span> <a href="#expression" class="rule">expression</a> <span class="operator">#</span> <a href="#mulExpression" class="rule">mulExpression</a> <span class="operator">|</span> <a href="#expression" class="rule">expression</a> <span class="literal">'+'</span> <a href="#mathExpression" class="rule">mathExpression</a> <span class="operator">#</span> <a href="#addExpression2" class="rule">addExpression2</a> <span class="operator">|</span> <a href="#expression" class="rule">expression</a> <span class="literal">'-'</span> <a href="#mathExpression" class="rule">mathExpression</a> <span class="operator">#</span> <a href="#subExpression2" class="rule">subExpression2</a> <span class="operator">|</span> <a href="#expression" class="rule">expression</a> <span class="literal">'*'</span> <a href="#mathExpression" class="rule">mathExpression</a> <span class="operator">#</span> <a href="#mulExpression2" class="rule">mulExpression2</a> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/mathExpression.png" />
+  </div>
+  </li>
+  <li class="rule" id="functionCall">
+  <h3>functionCall <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">functionCall</span> :  <a href="#ID" class="token">ID</a> <a href="#methodArgumentList" class="rule">methodArgumentList</a> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/functionCall.png" />
+  </div>
+  </li>
+  <li class="rule" id="methodArgumentList">
+  <h3>methodArgumentList <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">methodArgumentList</span> :  <span class="literal">'('</span> <span class="operator">(</span><a href="#expression" class="rule">expression</a> <span class="operator">(</span><span class="literal">','</span> <a href="#expression" class="rule">expression</a><span class="operator">)</span><span class="operator">*</span><span class="operator">)</span><span class="operator">?</span> <span class="literal">')'</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/methodArgumentList.png" />
+  </div>
+  </li>
+  <li class="rule" id="intArrayType">
+  <h3>intArrayType <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">intArrayType</span> :  <span class="literal">'int'</span> <span class="literal">'['</span> <span class="literal">']'</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/intArrayType.png" />
+  </div>
+  </li>
+  <li class="rule" id="charType">
+  <h3>charType <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">charType</span> :  <span class="literal">'char'</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/charType.png" />
+  </div>
+  </li>
+  <li class="rule" id="booleanType">
+  <h3>booleanType <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">booleanType</span> :  <span class="literal">'boolean'</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/booleanType.png" />
+  </div>
+  </li>
+  <li class="rule" id="intType">
+  <h3>intType <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">intType</span> :  <span class="literal">'int'</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/intType.png" />
+  </div>
+  </li>
+  <li class="rule" id="quantumType">
+  <h3>quantumType <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">quantumType</span> :  <span class="literal">'quantum'</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/quantumType.png" />
+  </div>
+  </li>
+  <li class="rule" id="CHAR">
+  <h3>CHAR <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">CHAR</span> :  <span class="literal">'\''</span>[<span class="literal">a-zA-Z_</span>]<span class="literal">'\''</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/CHAR.png" />
+  </div>
+  </li>
+  <li class="rule" id="INT">
+  <h3>INT <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">INT</span> :  <span class="operator">(</span><span class="literal">'0'</span> <span class="operator">|</span> [<span class="literal">1-9</span>][<span class="literal">0-9</span>]<span class="operator">*</span><span class="operator">)</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/INT.png" />
+  </div>
+  </li>
+  <li class="rule" id="QUANTUM">
+  <h3>QUANTUM <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">QUANTUM</span> :  <span class="literal">'true'</span> <span class="operator">|</span> <span class="literal">'false'</span> <span class="operator">|</span> <span class="literal">'maybe'</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/QUANTUM.png" />
+  </div>
+  </li>
+  <li class="rule" id="BOOL">
+  <h3>BOOL <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">BOOL</span> :  <span class="literal">'true'</span> <span class="operator">|</span> <span class="literal">'false'</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/BOOL.png" />
+  </div>
+  </li>
+  <li class="rule" id="ID">
+  <h3>ID <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">ID</span> :  [<span class="literal">a-zA-Z_</span>][<span class="literal">0-9a-zA-Z_</span>]<span class="operator">*</span> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/ID.png" />
+  </div>
+  </li>
+  <li class="rule" id="WS">
+  <h3>WS <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">WS</span> :  [<span class="literal"> \r\t\n</span>]<span class="operator">+</span> <span class="operator">-></span> <a href="#skip" class="rule">skip</a> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/WS.png" />
+  </div>
+  </li>
+  <li class="rule" id="COMMENT">
+  <h3>COMMENT <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">COMMENT</span> :  <span class="literal">'/*'</span> <span class="operator">.</span><span class="operator">*</span><span class="operator">?</span> <span class="literal">'*/'</span> <span class="operator">-></span> <a href="#skip" class="rule">skip</a> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/COMMENT.png" />
+  </div>
+  </li>
+  <li class="rule" id="LINE_COMMENT">
+  <h3>LINE_COMMENT <a class="topLink" title="Go to top" href="NossaLinguagem.g4.html">Top</a></h3>
+  <div class="doc">
+    <p>
+    </p>
+  </div>
+  <div class="ebnf">
+  <h4>Text notation:</h4>
+  <div>
+    <span class="rule">LINE_COMMENT</span> :  <span class="literal">'//'</span> <span class="operator">~</span>[<span class="literal">\r\n</span>]<span class="operator">*</span> <span class="operator">-></span> <a href="#skip" class="rule">skip</a> ;
+  </div>
+  </div>
+  <div class="railroad">
+  <h4>Visual notation:</h4>
+  <img border="0" src="images/LINE_COMMENT.png" />
+  </div>
+  </li>
+</ul>
+</div>
+</div>
+<footer>Generated by: <a href="https://github.com/jknack/antlr4ide">ANTLR 4 IDE</a>. Copyright (c) 2013 <a href="https://twitter.com/edgarespina">Edgar Espina</a></footer>
+</body>
+</html>
