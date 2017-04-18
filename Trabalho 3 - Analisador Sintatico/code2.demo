@@ -1,0 +1,30 @@
+class ID
+{
+	public static void main (String[] args) {
+		return WORK();
+	}
+}
+
+class ID2
+{
+	quantum quant = maybe;
+
+	public boolean WORK(){
+		int i;
+		int j;
+		char c;
+		int[] a;
+
+		if(quant){
+			i = 40;
+			j = 25;
+		} else {
+			c = 'a';
+		}
+
+		recur (quant == true || quant == false) ? () : j = 10;
+
+		return j;
+	}
+
+}
