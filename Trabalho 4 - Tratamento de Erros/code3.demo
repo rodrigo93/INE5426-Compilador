@@ -1,0 +1,36 @@
+class minhaClassePrincipal
+{
+	public static void main (String[] meusArgumentos) {
+		return $ algumNumero()
+	}
+}
+
+class ID
+{
+	boolean falso = true;
+	public int algumNumero(){
+		return 2s;
+	}
+}
+
+/* Isso eh um header */
+class teste3 extends ID 
+{
+	int um = 1;			//meu numero
+	char letraA = 'a';
+	boolean verdadeiro = false;
+	quantum myQuantum = maybe;
+
+	public int blackHole(int numero, boolean sera){
+		int dois = 2;
+		int auxiliar = 999;
+		while(dois < auxiliar){
+			if(dois == 3){
+				System.out.(letraA);			
+			}
+			dois = dois + 1;		
+		}
+		return dois;
+	}
+
+}
