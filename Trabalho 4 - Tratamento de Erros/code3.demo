@@ -1,12 +1,10 @@
-class minhaClassePrincipal
-{
+class minhaClassePrincipal {
 	public static void main (String[] meusArgumentos) {
 		return $ algumNumero()
 	}
 }
 
-class ID
-{
+class ID {
 	boolean falso = true;
 	public int algumNumero(){
 		return 2s;
@@ -14,8 +12,7 @@ class ID
 }
 
 /* Isso eh um header */
-class teste3 extends ID 
-{
+class teste3 extends ID {
 	int um = 1;			//meu numero
 	char letraA = 'a';
 	boolean verdadeiro = false;
@@ -32,5 +29,6 @@ class teste3 extends ID
 		}
 		return dois;
 	}
-
 }
+/**
+

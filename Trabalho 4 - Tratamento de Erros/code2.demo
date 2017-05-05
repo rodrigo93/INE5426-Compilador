@@ -6,14 +6,16 @@ class ID
 }
 
 class ID2
-{
-	quantum quant = maybe;
+//{
+	quant = maybe;
 
 	public boolean WORK(){
 		int i;
 		int j;
 		char c;
 		int[] a;
+
+		double notDouble;
 
 		if(quant){
 			i = 40;

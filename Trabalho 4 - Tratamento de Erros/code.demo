@@ -1,6 +1,7 @@
 class ID
 {
 	public static void main (String[] args) {
+		i++;		
 		return 0;
 	}
 }
