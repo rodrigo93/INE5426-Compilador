@@ -4,6 +4,7 @@
 
 Modificar produção "expression-> expresison . ID MethodArgumentList" por "expression -> ID . functionCall"
 Remover produção "expression -> - expression"
+Modificar producao "expression -> expression[expression]" para "expression -> ID[expression]"
 
 Repositorio para a realizacao do trabalho da disciplina INE5426 Construcao de Compiladores.
 Membros do grupo:
