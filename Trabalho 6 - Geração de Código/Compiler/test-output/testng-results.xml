@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="538" started-at="2017-06-08T22:54:20Z" finished-at="2017-06-08T22:54:20Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="538" started-at="2017-06-08T22:54:20Z" finished-at="2017-06-08T22:54:20Z">
+      <class name="me.compiladores.compiler.CompilerTest">
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:me.compiladores.compiler.CompilerTest@4520ebad]" name="createTempDir" is-config="true" duration-ms="11" started-at="2017-06-08T19:54:20Z" finished-at="2017-06-08T19:54:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="runningCodeOutputsExpectedText(java.lang.String, java.lang.String)[pri:0, instance:me.compiladores.compiler.CompilerTest@4520ebad]" name="runningCodeOutputsExpectedText" duration-ms="248" started-at="2017-06-08T19:54:20Z" data-provider="provide_code_expectedTest" finished-at="2017-06-08T19:54:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[println(1+2);]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[3
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runningCodeOutputsExpectedText -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:me.compiladores.compiler.CompilerTest@4520ebad]" name="deleteTempDir" is-config="true" duration-ms="0" started-at="2017-06-08T19:54:20Z" finished-at="2017-06-08T19:54:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:me.compiladores.compiler.CompilerTest@4520ebad]" name="createTempDir" is-config="true" duration-ms="1" started-at="2017-06-08T19:54:20Z" finished-at="2017-06-08T19:54:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="runningCodeOutputsExpectedText(java.lang.String, java.lang.String)[pri:0, instance:me.compiladores.compiler.CompilerTest@4520ebad]" name="runningCodeOutputsExpectedText" duration-ms="59" started-at="2017-06-08T19:54:20Z" data-provider="provide_code_expectedTest" finished-at="2017-06-08T19:54:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[println(1+3*2-5/5);]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[6
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runningCodeOutputsExpectedText -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:me.compiladores.compiler.CompilerTest@4520ebad]" name="deleteTempDir" is-config="true" duration-ms="0" started-at="2017-06-08T19:54:20Z" finished-at="2017-06-08T19:54:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:me.compiladores.compiler.CompilerTest@4520ebad]" name="createTempDir" is-config="true" duration-ms="0" started-at="2017-06-08T19:54:20Z" finished-at="2017-06-08T19:54:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="runningCodeOutputsExpectedText(java.lang.String, java.lang.String)[pri:0, instance:me.compiladores.compiler.CompilerTest@4520ebad]" name="runningCodeOutputsExpectedText" duration-ms="60" started-at="2017-06-08T19:54:20Z" data-provider="provide_code_expectedTest" finished-at="2017-06-08T19:54:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[int foo; foo = 42; println(foo);]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[42
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runningCodeOutputsExpectedText -->
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:me.compiladores.compiler.CompilerTest@4520ebad]" name="createTempDir" is-config="true" duration-ms="1" started-at="2017-06-08T19:54:20Z" finished-at="2017-06-08T19:54:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:me.compiladores.compiler.CompilerTest@4520ebad]" name="deleteTempDir" is-config="true" duration-ms="0" started-at="2017-06-08T19:54:20Z" finished-at="2017-06-08T19:54:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+        <test-method status="PASS" signature="runningCodeOutputsExpectedText(java.lang.String, java.lang.String)[pri:0, instance:me.compiladores.compiler.CompilerTest@4520ebad]" name="runningCodeOutputsExpectedText" duration-ms="60" started-at="2017-06-08T19:54:20Z" data-provider="provide_code_expectedTest" finished-at="2017-06-08T19:54:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[int foo; foo = 42; println(foo + 2);]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[44
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runningCodeOutputsExpectedText -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:me.compiladores.compiler.CompilerTest@4520ebad]" name="deleteTempDir" is-config="true" duration-ms="1" started-at="2017-06-08T19:54:20Z" finished-at="2017-06-08T19:54:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+        <test-method status="PASS" signature="createTempDir()[pri:0, instance:me.compiladores.compiler.CompilerTest@4520ebad]" name="createTempDir" is-config="true" duration-ms="1" started-at="2017-06-08T19:54:20Z" finished-at="2017-06-08T19:54:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTempDir -->
+        <test-method status="PASS" signature="runningCodeOutputsExpectedText(java.lang.String, java.lang.String)[pri:0, instance:me.compiladores.compiler.CompilerTest@4520ebad]" name="runningCodeOutputsExpectedText" duration-ms="60" started-at="2017-06-08T19:54:20Z" data-provider="provide_code_expectedTest" finished-at="2017-06-08T19:54:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[int a; int b; a = 20; b = 40; println(a + b);]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[60
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runningCodeOutputsExpectedText -->
+        <test-method status="PASS" signature="deleteTempDir()[pri:0, instance:me.compiladores.compiler.CompilerTest@4520ebad]" name="deleteTempDir" is-config="true" duration-ms="0" started-at="2017-06-08T19:54:20Z" finished-at="2017-06-08T19:54:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteTempDir -->
+      </class> <!-- me.compiladores.compiler.CompilerTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

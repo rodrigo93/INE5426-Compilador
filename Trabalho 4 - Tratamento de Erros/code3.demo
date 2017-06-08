@@ -30,5 +30,4 @@ class teste3 extends ID {
 		return dois;
 	}
 }
-/**
 

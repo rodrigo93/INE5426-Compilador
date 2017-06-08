@@ -1,7 +1,8 @@
 class ID
 {
 	public static void main (String[] args) {
-		i++;		
+		int i = 0;
+		System.out.println(i);
 		return 0;
 	}
 }
