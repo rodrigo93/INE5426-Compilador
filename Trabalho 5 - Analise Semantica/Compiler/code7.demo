@@ -1,0 +1,18 @@
+// Exemplo de erro: Atribuição de tipo incorreto.
+
+class principal
+{
+	public static void main (String[] args) {
+		return 0;
+	}
+}
+
+class secundaria
+{	
+	char a;
+	public boolean test()
+	{
+		a = false;
+		return true;
+	}
+}

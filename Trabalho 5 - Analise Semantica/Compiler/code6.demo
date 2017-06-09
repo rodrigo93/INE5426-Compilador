@@ -1,0 +1,20 @@
+// Exemplo de erro: Index Out of Bounds de um array.
+
+class principal
+{
+	public static void main (String[] args) {
+		return 0;
+	}
+}
+
+class secundaria
+{	
+	int[] i;
+	public boolean test(int a, char b, boolean c)
+	{
+		i = new int[10];
+		i[10] = 1;
+		//i[9] = 1;
+		return true;
+	}
+}

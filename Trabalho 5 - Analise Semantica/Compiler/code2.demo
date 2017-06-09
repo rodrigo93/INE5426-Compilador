@@ -1,0 +1,16 @@
+// Exemplo de erro: tipo de retorno não é o mesmo que o declarado.
+
+class principal
+{
+	public static void main (String[] args) {
+		return 0;
+	}
+}
+
+class secundaria
+{
+	public boolean test()
+	{
+		return 1;
+	}
+}

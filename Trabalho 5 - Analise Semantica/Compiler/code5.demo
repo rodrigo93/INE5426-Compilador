@@ -1,0 +1,32 @@
+// Exemplo de erro: tipo de argumentos incorreto.
+
+class principal
+{
+	public static void main (String[] args) {
+		return 0;
+	}
+}
+
+class secundaria
+{	
+	int resultado;
+	int soma;
+	public boolean test(int a, char b, boolean c)
+	{
+		char a;
+		//int a;
+		int b;
+		a = 'x';
+		//a = 20;
+		b = 10;
+		resultado = this.add(a, b);
+		return true;
+	}
+	
+	
+	public int add(int a, int b)
+	{	
+		soma = a + b;
+		return soma;
+	}
+}
