@@ -17,6 +17,20 @@ public interface SimpleVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTarget(SimpleParser.TargetContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code mainStatement}
+	 * labeled alternative in {@link SimpleParser#programPart}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMainStatement(SimpleParser.MainStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code programPartDefinitionMethod}
+	 * labeled alternative in {@link SimpleParser#programPart}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProgramPartDefinitionMethod(SimpleParser.ProgramPartDefinitionMethodContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link SimpleParser#println}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -71,11 +85,54 @@ public interface SimpleVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitNum(SimpleParser.NumContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code functionCall}
+	 * labeled alternative in {@link SimpleParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionCall(SimpleParser.FunctionCallContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link SimpleParser#assignment}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitAssignment(SimpleParser.AssignmentContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SimpleParser#methodDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMethodDeclaration(SimpleParser.MethodDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SimpleParser#varList}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVarList(SimpleParser.VarListContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SimpleParser#methodbody}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMethodbody(SimpleParser.MethodbodyContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SimpleParser#statementList}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStatementList(SimpleParser.StatementListContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SimpleParser#methodCall}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMethodCall(SimpleParser.MethodCallContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SimpleParser#callList}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCallList(SimpleParser.CallListContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SimpleParser#varDeclaration}.
 	 * @param ctx the parse tree

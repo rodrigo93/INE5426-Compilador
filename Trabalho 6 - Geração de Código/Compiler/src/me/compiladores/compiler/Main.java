@@ -33,11 +33,6 @@ public class Main {
 	public static String createJasminFile(String instructions) {
 		return ".class public HelloWorld" + System.lineSeparator()
 				+ ".super java/lang/Object" + System.lineSeparator()
-				+ ".method public static main([Ljava/lang/String;)V"
-				+ System.lineSeparator() + "	.limit stack 100"
-				+ System.lineSeparator() + "	.limit locals 100"
-				+ System.lineSeparator() + instructions
-				+ System.lineSeparator() + "return" + System.lineSeparator()
-				+ ".end method";
+				+ instructions;
 	}
 }

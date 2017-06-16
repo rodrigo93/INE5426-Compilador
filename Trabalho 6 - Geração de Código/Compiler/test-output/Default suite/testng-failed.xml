@@ -5,7 +5,7 @@
     <classes>
       <class name="me.compiladores.compiler.CompilerTest">
         <methods>
-          <include name="runningCodeOutputsExpectedText" invocation-numbers="2 3 4"/>
+          <include name="runningCodeOutputsExpectedText" invocation-numbers="9"/>
           <include name="createTempDir"/>
           <include name="deleteTempDir"/>
         </methods>

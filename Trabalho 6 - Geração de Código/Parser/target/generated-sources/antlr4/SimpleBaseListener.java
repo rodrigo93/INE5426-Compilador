@@ -16,18 +16,6 @@ public class SimpleBaseListener implements SimpleListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDiv(@NotNull SimpleParser.DivContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDiv(@NotNull SimpleParser.DivContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterAdd(@NotNull SimpleParser.AddContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -40,25 +28,13 @@ public class SimpleBaseListener implements SimpleListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrintln(@NotNull SimpleParser.PrintlnContext ctx) { }
+	@Override public void enterMethodDeclaration(@NotNull SimpleParser.MethodDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrintln(@NotNull SimpleParser.PrintlnContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMin(@NotNull SimpleParser.MinContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMin(@NotNull SimpleParser.MinContext ctx) { }
+	@Override public void exitMethodDeclaration(@NotNull SimpleParser.MethodDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -112,13 +88,49 @@ public class SimpleBaseListener implements SimpleListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStatement(@NotNull SimpleParser.StatementContext ctx) { }
+	@Override public void enterMainStatement(@NotNull SimpleParser.MainStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStatement(@NotNull SimpleParser.StatementContext ctx) { }
+	@Override public void exitMainStatement(@NotNull SimpleParser.MainStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMethodbody(@NotNull SimpleParser.MethodbodyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMethodbody(@NotNull SimpleParser.MethodbodyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterProgramPartDefinitionMethod(@NotNull SimpleParser.ProgramPartDefinitionMethodContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitProgramPartDefinitionMethod(@NotNull SimpleParser.ProgramPartDefinitionMethodContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCallList(@NotNull SimpleParser.CallListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCallList(@NotNull SimpleParser.CallListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -143,6 +155,102 @@ public class SimpleBaseListener implements SimpleListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitTarget(@NotNull SimpleParser.TargetContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDiv(@NotNull SimpleParser.DivContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDiv(@NotNull SimpleParser.DivContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterPrintln(@NotNull SimpleParser.PrintlnContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPrintln(@NotNull SimpleParser.PrintlnContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMin(@NotNull SimpleParser.MinContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMin(@NotNull SimpleParser.MinContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVarList(@NotNull SimpleParser.VarListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVarList(@NotNull SimpleParser.VarListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunctionCall(@NotNull SimpleParser.FunctionCallContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunctionCall(@NotNull SimpleParser.FunctionCallContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStatementList(@NotNull SimpleParser.StatementListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStatementList(@NotNull SimpleParser.StatementListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStatement(@NotNull SimpleParser.StatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStatement(@NotNull SimpleParser.StatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMethodCall(@NotNull SimpleParser.MethodCallContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMethodCall(@NotNull SimpleParser.MethodCallContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
